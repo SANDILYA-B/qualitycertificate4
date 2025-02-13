@@ -1,0 +1,3647 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.5.1"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "API_INSPECTIONLOT_SRV": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "API_INSPECTIONLOT_SRV.A_InspectionCharacteristic": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Inspection Characteristics",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspPlanOperationInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Current Node No.",
+     "@sap.quickinfo": "Current Node Number from Order Counter",
+     "notNull": true
+    },
+    "InspectionCharacteristic": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Insp. Characteristic",
+     "@sap.quickinfo": "Inspection Characteristic Number",
+     "notNull": true
+    },
+    "InspectionSpecificationText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Characteristic Short Text",
+     "@sap.quickinfo": "Short Text for Inspection Characteristic"
+    },
+    "HasInspCharcPrtlSmpl": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Partial Samples",
+     "@sap.quickinfo": "Partial Samples Possible"
+    },
+    "InspSpecIsQuantitative": {
+     "type": "cds.Boolean",
+     "@sap.label": "Is Quantitative Characteristic"
+    },
+    "InspSpecIsMeasuredValueRqd": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Record Measured Vals",
+     "@sap.quickinfo": "Measured Values Must Be Recorded"
+    },
+    "InspSpecIsSelectedSetRequired": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Charc Attribute",
+     "@sap.quickinfo": "Reference to Characteristic Attribute Required"
+    },
+    "InspSpecIsLongTermInspection": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Long-Term Inspection"
+    },
+    "InspSpecRecordingType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Recording Type"
+    },
+    "InspResultIsDocumentationRqd": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Document Results",
+     "@sap.quickinfo": "Documentation Required for Inspection Results"
+    },
+    "InspSpecCharcCategory": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Charac. category",
+     "@sap.quickinfo": "Characteristic Category"
+    },
+    "InspSpecResultCalculation": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Calculated Charc",
+     "@sap.quickinfo": "Calculated Characteristic"
+    },
+    "InspCharcIsNotPlanned": {
+     "type": "cds.Boolean",
+     "@sap.label": "Unplanned Characteristic"
+    },
+    "InspectionMethod": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspection Method"
+    },
+    "InspectionMethodPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant for Inspection Method"
+    },
+    "InspectionMethodVersion": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Version",
+     "@sap.quickinfo": "Version Number of Inspection Method"
+    },
+    "InspectionSpecificationPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant for Master Characteristic",
+     "@sap.quickinfo": "Plant for Master Inspection Characteristic"
+    },
+    "InspectionSpecification": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Master Insp. Charac.",
+     "@sap.quickinfo": "Master Inspection Characteristic"
+    },
+    "InspectionSpecificationVersion": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Version",
+     "@sap.quickinfo": "Version Number of Master Inspection Characteristic"
+    },
+    "InspectionCharacteristicStatus": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Specification status",
+     "@sap.quickinfo": "Specification Record Status"
+    },
+    "InspSpecDecimalPlaces": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "@sap.label": "Decimal Places",
+     "@sap.quickinfo": "Number of Places to the Right of a Decimal Point (Accuracy)"
+    },
+    "InspectionSpecificationUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Unit of Measurement",
+     "@sap.quickinfo": "Unit of Measurement in Which Quantitative Data Is Stored",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "InspSampleValuationRule": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Valuation rule",
+     "@sap.quickinfo": "Valuation Rule"
+    },
+    "QuantityUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Sample Unit of Meas.",
+     "@sap.quickinfo": "Sample Unit of Measure",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "InspCharacteristicSampleSize": {
+     "type": "cds.Integer",
+     "@sap.label": "Inspect",
+     "@sap.quickinfo": "Sample Size that Has to Be Inspected for a Characteristic"
+    },
+    "InspCharacteristicSampleUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Sample Unit of Meas.",
+     "@sap.quickinfo": "Sample Unit of Measure",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "InspSpecSampleQuantityFactor": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 2,
+     "@sap.label": "Base Sample Quantity",
+     "@sap.quickinfo": "Sample Quantity Factor for Sample(Mult. Sample Unit of Msr.)"
+    },
+    "InspSpecTargetValue": {
+     "type": "cds.Double",
+     "@sap.unit": "InspectionSpecificationUnit",
+     "@sap.label": "Target Value",
+     "@sap.quickinfo": "Target Value for a Quantitative Characteristic"
+    },
+    "InspSpecFrmtdTargetValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Target Value",
+     "@sap.quickinfo": "Target Value for Quantitative Characteristic (Formatted)"
+    },
+    "InspSpecHasTargetValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set"
+    },
+    "InspSpecUpperLimit": {
+     "type": "cds.Double",
+     "@sap.unit": "InspectionSpecificationUnit",
+     "@sap.label": "Upper Specif. Limit",
+     "@sap.quickinfo": "Upper Specification Limit"
+    },
+    "InspSpecFrmtdUpperLimit": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Upper Specif. Limit",
+     "@sap.quickinfo": "Upper Specification Limit (Formatted)"
+    },
+    "InspSpecHasUpperLimit": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set"
+    },
+    "InspSpecLowerLimit": {
+     "type": "cds.Double",
+     "@sap.unit": "InspectionSpecificationUnit",
+     "@sap.label": "Lower Specif. Limit",
+     "@sap.quickinfo": "Lower Specification Limit"
+    },
+    "InspSpecFrmtdLowerLimit": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Lower Specif. Limit",
+     "@sap.quickinfo": "Lower Specification Limit (Formatted)"
+    },
+    "InspSpecHasLowerLimit": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set"
+    },
+    "InspSpecImportanceCode": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Weighting of Charc",
+     "@sap.quickinfo": "Weighting of Characteristic"
+    },
+    "InspLotTestEquipInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Test equipment",
+     "@sap.quickinfo": "Assigned Test Equipment"
+    },
+    "SelectedCodeSet": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code group/sel. set",
+     "@sap.quickinfo": "Assigned Code Group or Selected Set"
+    },
+    "SelectedCodeSetPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant",
+     "@sap.quickinfo": "Plant of the Assigned Selected Set"
+    },
+    "InspectorQualification": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspector Qualific.",
+     "@sap.quickinfo": "Inspector Qualification"
+    },
+    "InspSpecInformationField1": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.label": "Info Field 1",
+     "@sap.quickinfo": "Text Line for Additional Information"
+    },
+    "InspSpecInformationField2": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "Info Field 2",
+     "@sap.quickinfo": "Text Line for Additional Information"
+    },
+    "InspSpecInformationField3": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Info Field 3",
+     "@sap.quickinfo": "Text Line for Additional Information"
+    },
+    "InspectionScope": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspCharacteristicSampleUnit",
+     "@sap.label": "Inspection Quantity",
+     "@sap.quickinfo": "Quantity to Be Inspected"
+    },
+    "InspCharcQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "QuantityUnit",
+     "@sap.label": "Inspection Quantity",
+     "@sap.quickinfo": "Quantity to Be Inspected"
+    },
+    "InspSpecControlIndicators": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Char. control ind.",
+     "@sap.quickinfo": "Cntrl Indicator String for Insp. Char./Master Insp. Char."
+    },
+    "CharacteristicAttributeCatalog": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "UnplndCharcInspSubsetIntID": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "SmpNo UCh",
+     "@sap.quickinfo": "Unplanned Characteristic Was Created with this Sample No."
+    },
+    "InspLotDynamicRule": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Dynamic Modification Rule"
+    },
+    "InspCharcConfirmationNumber": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Confirmation Number",
+     "@sap.quickinfo": "Confirmation Number for Inspection Characteristic",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "to_InspResultValue": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Composition",
+     "target": "API_INSPECTIONLOT_SRV.A_InspectionResultValue",
+     "cardinality": {
+      "max": "*"
+     },
+     "on": [
+      {
+       "ref": [
+        "to_InspResultValue",
+        "InspectionCharacteristic"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "InspectionCharacteristic"
+       ]
+      },
+      "and",
+      {
+       "ref": [
+        "to_InspResultValue",
+        "InspPlanOperationInternalID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "InspPlanOperationInternalID"
+       ]
+      },
+      "and",
+      {
+       "ref": [
+        "to_InspResultValue",
+        "InspectionLot"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "InspectionLot"
+       ]
+      }
+     ]
+    },
+    "to_InspSmplResult": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Composition",
+     "target": "API_INSPECTIONLOT_SRV.A_InspSampleResult",
+     "cardinality": {
+      "max": "*"
+     },
+     "on": [
+      {
+       "ref": [
+        "to_InspSmplResult",
+        "InspectionCharacteristic"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "InspectionCharacteristic"
+       ]
+      },
+      "and",
+      {
+       "ref": [
+        "to_InspSmplResult",
+        "InspPlanOperationInternalID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "InspPlanOperationInternalID"
+       ]
+      },
+      "and",
+      {
+       "ref": [
+        "to_InspSmplResult",
+        "InspectionLot"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "InspectionLot"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspectionLot": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Inspection Lot Data",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "Material": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number"
+    },
+    "Batch": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Batch",
+     "@sap.quickinfo": "Batch Number"
+    },
+    "Plant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "InspectionLotOrigin": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspection Lot Origin"
+    },
+    "OrderInternalBillOfOperations": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Opertn Task List No.",
+     "@sap.quickinfo": "Routing Number of Operations in the Order"
+    },
+    "ManufacturingOrder": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Production Order",
+     "@sap.quickinfo": "Order Number (Production Order)"
+    },
+    "InspectionLotText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Inspection Lot Text"
+    },
+    "InspectionLotType": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspection Type"
+    },
+    "InspectionLotQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Inspection Lot Quantity"
+    },
+    "InspectionLotActualQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Actual Lot Quantity"
+    },
+    "InspectionLotDefectiveQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Defective Quantity"
+    },
+    "InspectionLotQuantityUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Base Unit of Measure",
+     "@sap.quickinfo": "Base Unit of Measure for Inspection Lot Quantity",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "InspLotCreatedOnLocalDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Lot Created",
+     "@sap.quickinfo": "Date in Time Zone Where Lot Created"
+    },
+    "InspSubsetFieldCombination": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Combinat.",
+     "@sap.quickinfo": "Identifier for Inspection Point Field Combination"
+    },
+    "InspLotNmbrOpenLongTermCharc": {
+     "type": "cds.Integer",
+     "@sap.label": "Open Long-Term Characteristics"
+    },
+    "StatusObject": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number"
+    },
+    "StatusObjectCategory": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Category"
+    },
+    "InspectionLotObjectText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Object Short Text",
+     "@sap.quickinfo": "Short Text for Inspection Object"
+    },
+    "StatusProfile": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Status Profile"
+    },
+    "MatlQualityAuthorizationGroup": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "QM Material Authorization",
+     "@sap.quickinfo": "Material Authorization Group for Activities in QM"
+    },
+    "InspectionLotHasQuantity": {
+     "type": "cds.Boolean",
+     "@sap.label": "Posted to Inspection Stock"
+    },
+    "InspLotIsCreatedAutomatically": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Insp. Lot Created",
+     "@sap.quickinfo": "Inspection Lot Is Created Automatically"
+    },
+    "InspectionLotHasPartialLots": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Partial Lots Exist"
+    },
+    "InspectionLotHasAppraisalCosts": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Individual QM Order",
+     "@sap.quickinfo": "Record Appraisal Costs in Individual QM Order"
+    },
+    "InspLotHasSubsets": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Insp. with Insp. Pts",
+     "@sap.quickinfo": "Inspection with Inspection Points"
+    },
+    "InspLotIsAutomUsgeDcsnPossible": {
+     "type": "cds.Boolean",
+     "@sap.label": "Automatic Usage Decision Planned"
+    },
+    "PurchasingDocumentCategory": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Source inspection",
+     "@sap.quickinfo": "Source Inspection"
+    },
+    "InspLotHasConfignSpecification": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Insp. by Configuratn",
+     "@sap.quickinfo": "Inspection Specifications from Configuration"
+    },
+    "GoodsReceiptIsMovedToBlkdStock": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "GR Blocked Stock"
+    },
+    "InspLotIsDocumentationRequired": {
+     "type": "cds.Boolean",
+     "@sap.label": "Documentation Required"
+    },
+    "InspLotIsTaskListRequired": {
+     "type": "cds.Boolean",
+     "@sap.label": "Inspection Plan Required"
+    },
+    "InspLotHasManualSampleSize": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Manual sample",
+     "@sap.quickinfo": "Enter Sample Manually"
+    },
+    "InspLotHasMaterialSpec": {
+     "type": "cds.Boolean",
+     "@sap.label": "Inspect with Material Specification"
+    },
+    "InspectionLotApproval": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspection Lot Approval"
+    },
+    "InspLotDigitalSgntrResultsRecg": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Dig. Sig. in RR",
+     "@sap.quickinfo": "Digital Signature for Insp. Lot in Results Recording"
+    },
+    "InspLotDigitalSgntrInUsgeDcsn": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Digital Signature Usage Decision"
+    },
+    "InspLotIsBatchRequired": {
+     "type": "cds.Boolean",
+     "@sap.label": "Appr.Batch Recd Req.",
+     "@sap.quickinfo": "Approved Batch Record Required"
+    },
+    "InspLotUsageInStabilityStudy": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Insp. Lot Stab.",
+     "@sap.quickinfo": "Inspection Lot for Stability Study"
+    },
+    "InspLotIsStockPostingCompleted": {
+     "type": "cds.Boolean",
+     "@sap.label": "Stock Postings Completed"
+    },
+    "InspectionLotHasUsageDecision": {
+     "type": "cds.Boolean",
+     "@sap.label": "Usage Decision Made"
+    },
+    "NumberOfSerialNumbers": {
+     "type": "cds.Integer",
+     "@sap.label": "No.serial numbers",
+     "@sap.quickinfo": "Number of serial numbers"
+    },
+    "InspLotIsSerialNmbrPossible": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Serial Numbers Poss.",
+     "@sap.quickinfo": "Serial Numbers Possible for Inspection Lot"
+    },
+    "InspectionLotIsSkipped": {
+     "type": "cds.Boolean",
+     "@sap.label": "Skip Lot"
+    },
+    "InspectionLotIsFullInspection": {
+     "type": "cds.Boolean",
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "100% Inspection"
+    },
+    "InspectionLotDynamicLevel": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Dynamic Modification Level",
+     "@sap.quickinfo": "Level at Which Dynamic Modification Parameters Are Defined"
+    },
+    "SamplingProcedure": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sampling Procedure"
+    },
+    "InspLotCreatedOnLocalTime": {
+     "type": "cds.Time",
+     "@sap.label": "Created At (Local Time)",
+     "@sap.quickinfo": "Time in Time Zone Where Lot Created"
+    },
+    "InspectionLotCreatedBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Name of User Who Created the Data Record"
+    },
+    "InspectionLotCreatedOn": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Created"
+    },
+    "InspectionLotCreatedOnTime": {
+     "type": "cds.Time",
+     "@sap.label": "Created At",
+     "@sap.quickinfo": "System Time of Creation"
+    },
+    "InspectionLotChangedBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Name of User Who Last Changed Data Record"
+    },
+    "InspectionLotChangeDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Changed"
+    },
+    "InspectionLotChangeTime": {
+     "type": "cds.Time",
+     "@sap.label": "Changed At",
+     "@sap.quickinfo": "System Time of Change"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "InspectionLotStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Start of Inspection",
+     "@sap.quickinfo": "Start Date of Inspection in Local Time Zone"
+    },
+    "InspectionLotStartTime": {
+     "type": "cds.Time",
+     "@sap.label": "Inspection Started At"
+    },
+    "InspectionLotEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "End of Inspection",
+     "@sap.quickinfo": "End Date of Inspection in Local Time Zone"
+    },
+    "InspectionLotEndTime": {
+     "type": "cds.Time",
+     "@sap.label": "Inspection Ended At"
+    },
+    "BillOfOperationsType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Bill of Operations Type"
+    },
+    "BillOfOperationsGroup": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Bill of Operations Group"
+    },
+    "BillOfOperationsUsage": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Bill of Operations Usage"
+    },
+    "BillOfOperationsVariant": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Bill of Operations Group Counter"
+    },
+    "BillOfOperationsChangeStateID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal counter"
+    },
+    "InspectionSubsetType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspection Point Type"
+    },
+    "SmplDrawingProcedure": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sample-Drawing Procedure"
+    },
+    "SmplDrawingProcedureVersion": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Version",
+     "@sap.quickinfo": "Version No. of the Sample-Drawing Procedure"
+    },
+    "SmplDrwgProcedIsConfRequired": {
+     "type": "cds.Boolean",
+     "@sap.label": "Confirmation Required",
+     "@sap.quickinfo": "Confirmation Required for Sample Drawing"
+    },
+    "InspLotSelectionMaterial": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number"
+    },
+    "InspLotSelMatlRevisionLvl": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Revision Level"
+    },
+    "InspLotSelectionPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "InspLotSelectionSupplier": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Supplier",
+     "@sap.quickinfo": "Supplier's Account Number"
+    },
+    "InspLotSelectionManufacturer": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Manufacturer",
+     "@sap.quickinfo": "Number of Manufacturer"
+    },
+    "InspLotSelectionCustomer": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Customer",
+     "@sap.quickinfo": "Account number of customer"
+    },
+    "InspLotSelBillOfOperationsUsge": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Usage",
+     "@sap.quickinfo": "Task List Usage"
+    },
+    "InspLotSelectionValidFromDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Key Date",
+     "@sap.quickinfo": "Key Date for Selecting Records or Changing Task Lists"
+    },
+    "ProductionVersion": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Production Version"
+    },
+    "SalesOperationsPlanningOrder": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Run Schedule Header"
+    },
+    "IsBusinessPurposeCompleted": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purpose Completed",
+     "@sap.quickinfo": "Business Purpose Completed Flag"
+    },
+    "Customer": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Customer (Ship-to Party)"
+    },
+    "Supplier": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Supplier",
+     "@sap.quickinfo": "Supplier's Account Number"
+    },
+    "BatchBySupplier": {
+     "type": "cds.String",
+     "length": 15,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Supplier Batch",
+     "@sap.quickinfo": "Supplier Batch Number"
+    },
+    "Manufacturer": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Manufacturer",
+     "@sap.quickinfo": "Number of Manufacturer"
+    },
+    "ManufacturerPartNmbr": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Manufacturer Material"
+    },
+    "MaterialRevisionLevel": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Revision Level"
+    },
+    "MaterialIsBatchManaged": {
+     "type": "cds.Boolean",
+     "@sap.label": "Batch Required"
+    },
+    "BatchStorageLocation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage Location for Batch"
+    },
+    "MaterialCompIsSpecialStock": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Special Stock",
+     "@sap.quickinfo": "Special Stock Indicator"
+    },
+    "PurchasingOrganization": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Organization"
+    },
+    "PurchasingDocument": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Document"
+    },
+    "PurchasingDocumentItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Purchasing Document Item"
+    },
+    "ScheduleLine": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Schedule Line",
+     "@sap.quickinfo": "Delivery Schedule Line Counter"
+    },
+    "AccountingDocumentType": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Document Type"
+    },
+    "MaterialDocumentYear": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Material Document Year"
+    },
+    "MaterialDocument": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Document",
+     "@sap.quickinfo": "Number of Material Document"
+    },
+    "MaterialDocumentItem": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Material Document Item"
+    },
+    "MatlDocLatestPostgDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Posting Date",
+     "@sap.quickinfo": "Posting Date in the Document"
+    },
+    "GoodsMovementType": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Movement Type",
+     "@sap.quickinfo": "Movement Type (Inventory Management)"
+    },
+    "InspectionLotPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant for Inspection Lot"
+    },
+    "InspectionLotStorageLocation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage Loc. for Inspection Lot Stock",
+     "@sap.quickinfo": "Storage Location for Inspection Lot Stock"
+    },
+    "Warehouse": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Warehouse Number",
+     "@sap.quickinfo": "Warehouse Number / Warehouse Complex"
+    },
+    "StorageType": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage Type"
+    },
+    "StorageBin": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage Bin"
+    },
+    "SalesOrder": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sales Order",
+     "@sap.quickinfo": "Sales Order Number"
+    },
+    "SalesOrderItem": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sales Order Item"
+    },
+    "DeliveryDocument": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Delivery Document"
+    },
+    "DeliveryDocumentItem": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Delivery Document Item"
+    },
+    "DeliveryCategory": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Delivery category",
+     "@sap.quickinfo": "Delivery Category"
+    },
+    "InspectionDeliveryCategory": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Delivery category",
+     "@sap.quickinfo": "Delivery Category"
+    },
+    "Route": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Route"
+    },
+    "BillToPartyCountry": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Dest. Country/Region",
+     "@sap.quickinfo": "Destination Country/Region"
+    },
+    "SoldToParty": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Customer (Sold-to Party)"
+    },
+    "SalesOrganization": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sales Organization"
+    },
+    "MaterialByCustomer": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Customer Material"
+    },
+    "Language": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Language Key"
+    },
+    "InspLotNmbrAddlRecordedCharc": {
+     "type": "cds.Integer",
+     "@sap.label": "Charcs Recorded",
+     "@sap.quickinfo": "Number of Characteristics Recorded Additionally"
+    },
+    "InspLotNmbrOpenShortTermCharc": {
+     "type": "cds.Integer",
+     "@sap.label": "Short-Term Charcs",
+     "@sap.quickinfo": "Number of Outstanding Short-Term Chars That Require Confirm."
+    },
+    "InspectionLotContainer": {
+     "type": "cds.Decimal",
+     "precision": 6,
+     "scale": 3,
+     "@sap.unit": "InspectionLotContainerUnit",
+     "@sap.label": "Number of Containers",
+     "@sap.quickinfo": "QM - No. of Containers"
+    },
+    "InspectionLotContainerUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Lot Container",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "InspectionLotSampleQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotSampleUnit",
+     "@sap.label": "Sample Size",
+     "@sap.quickinfo": "Inspection Sample Size"
+    },
+    "InspectionLotSampleUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Sample Unit of Measure",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "InspLotDynamicRule": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Dynamic Modification Rule"
+    },
+    "InspLotDynamicTrggrPoint": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Time of dyn. modif.",
+     "@sap.quickinfo": "Time of Dynamic Modification in Inspection Lot"
+    },
+    "InspectionDynamicStage": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Stage"
+    },
+    "InspectionSeverity": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Severity"
+    },
+    "InspLotQtyToFree": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Unrestricted-Use Stock"
+    },
+    "InspLotQtyToScrap": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Scrap Quantity"
+    },
+    "InspLotQtyToSample": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Sample",
+     "@sap.quickinfo": "Quantity Posted to Sample"
+    },
+    "InspLotQtyToBlocked": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Blocked Stock"
+    },
+    "InspLotQtyToReserves": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Reserves",
+     "@sap.quickinfo": "Quantity Posted to Reserves"
+    },
+    "InspLotQtyToAnotherMaterial": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "New Material"
+    },
+    "InspLotMaterialPostedTo": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Posted To"
+    },
+    "InspLotBatchTransferredTo": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Batch Transferred To"
+    },
+    "InspLotQtyReturnedToSupplier": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Return to Supplier"
+    },
+    "InspLotQtyToSpecialStock": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Other Quantity"
+    },
+    "InspLotQtyToOtherStock": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Other Quantity 2"
+    },
+    "InspLotQtyToBePosted": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotQuantityUnit",
+     "@sap.label": "Quantity to Be Posted"
+    },
+    "InspLotSmplQtyForLongTermChar": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotSampleUnit",
+     "@sap.label": "Long-Term Sample Quantity"
+    },
+    "InspLotQtyInspected": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotSampleUnit",
+     "@sap.label": "Inspected Quantity"
+    },
+    "InspLotQtyDestroyed": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionLotSampleUnit",
+     "@sap.label": "Destroyed Quantity"
+    },
+    "InspectionLotScrapRatio": {
+     "type": "cds.Double",
+     "@sap.label": "Share of Scrap",
+     "@sap.quickinfo": "Share of Scrap in Inspection Lot"
+    },
+    "InspLotUsageDecisionTool": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "UD Mode",
+     "@sap.quickinfo": "Usage Decision Mode (UD Origin)"
+    },
+    "InspectionLotAllowedScrapRatio": {
+     "type": "cds.Double",
+     "@sap.label": "Allowed Scrap Share",
+     "@sap.quickinfo": "Allowed Share of Scrap"
+    },
+    "QualityCostCollector": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "QM Order",
+     "@sap.quickinfo": "Order Number for Recording Appraisal Costs"
+    },
+    "ConsumptionPosting": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Consumption",
+     "@sap.quickinfo": "Consumption posting"
+    },
+    "AccountAssignmentCategory": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Acct Assignment Cat.",
+     "@sap.quickinfo": "Account Assignment Category"
+    },
+    "PurchasingDocumentItemCategory": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Item Category",
+     "@sap.quickinfo": "Item category in purchasing document"
+    },
+    "InspLotAcctAssgmtKey": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Account Assgmt Key",
+     "@sap.quickinfo": "Account Assignment Key: Inspection Lot"
+    },
+    "CostCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Cost Center"
+    },
+    "ReservationItem": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Item no.",
+     "@sap.quickinfo": "Item Number of Reservation / Dependent Requirements"
+    },
+    "MasterFixedAsset": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Asset",
+     "@sap.quickinfo": "Main Asset Number"
+    },
+    "FixedAsset": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Subnumber",
+     "@sap.quickinfo": "Asset Subnumber"
+    },
+    "SalesOrdStockWBSElement": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "WBS Element",
+     "@sap.quickinfo": "Valuated Sales Order Stock WBS Element"
+    },
+    "ProjectNetwork": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Network",
+     "@sap.quickinfo": "Network Number for Account Assignment"
+    },
+    "NetworkActivityInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal counter"
+    },
+    "InventorySpclStkSalesDocument": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inventory Special Stock Sales Document"
+    },
+    "InventorySpclStkSalesDocItm": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sales order item",
+     "@sap.quickinfo": "Sales Order Item of Valuated Sales Order Stock"
+    },
+    "ProfitabilitySegment": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Profitability Segment"
+    },
+    "ProfitCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Profit Center"
+    },
+    "BusinessArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Area"
+    },
+    "GLAccount": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "G/L Account",
+     "@sap.quickinfo": "G/L Account Number"
+    },
+    "ControllingArea": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Controlling Area"
+    },
+    "CompanyCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Company Code"
+    },
+    "SerialNumberProfile": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Serial No. Profile",
+     "@sap.quickinfo": "Serial Number Profile"
+    },
+    "InspLotCostCollectorSalesOrder": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sales Order",
+     "@sap.quickinfo": "Sales Order Number"
+    },
+    "InspLotCostCollectorSlsOrdItem": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sales Order Item",
+     "@sap.quickinfo": "Item Number in Sales Order"
+    },
+    "InspLotCostCollectorWBSElement": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "WBS Element",
+     "@sap.quickinfo": "Work Breakdown Structure Element (WBS Element)"
+    },
+    "InspLotExternalNumber": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspection Document Number"
+    },
+    "InspectionLotPriorityPoints": {
+     "type": "cds.Integer",
+     "@sap.label": "Priority Points"
+    },
+    "MaintenancePlan": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maintenance Plan"
+    },
+    "MaintenancePlanItemIntID": {
+     "type": "cds.String",
+     "length": 16,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maintenance Item"
+    },
+    "MaintenanceStrategy": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maintenance Strategy"
+    },
+    "to_InspectionLotWithStatus": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "API_INSPECTIONLOT_SRV.A_InspectionLotWithStatus",
+     "keys": []
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspectionLotWithStatus": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Inspection Lot Statuses",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspectionLotStatusCreated": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspectionLotStatusReleased": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspectionLotStatusSkip": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspLotStatusRsltsConfirmed": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspLotStsDefectsRecorded": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspLotStsShrtTrmInspCmpltd": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspLotStatusInspCompleted": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspLotStatusCanceled": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "InspLotStatusRepair": {
+     "type": "cds.String",
+     "length": 1
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspectionOperation": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Inspection Operations",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspPlanOperationInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Current Node No.",
+     "@sap.quickinfo": "Current Node Number from Order Counter",
+     "notNull": true
+    },
+    "OrderInternalBillOfOperations": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Opertn Task List No.",
+     "@sap.quickinfo": "Routing Number of Operations in the Order"
+    },
+    "InspectionOperation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Activity",
+     "@sap.quickinfo": "Activity Number"
+    },
+    "InspectionOperationPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "BillOfOperationsType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Task List Type"
+    },
+    "BOOOperationInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Task List Node",
+     "@sap.quickinfo": "Number of the Task List Node"
+    },
+    "WorkCenterInternalID": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Object ID",
+     "@sap.quickinfo": "Object ID of the resource"
+    },
+    "StatusObject": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Object Number"
+    },
+    "OperationControlProfile": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Control Key"
+    },
+    "OperationConfirmation": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Confirmation",
+     "@sap.quickinfo": "Completion confirmation number for the operation"
+    },
+    "InspectionSubSystem": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "QDR System",
+     "@sap.quickinfo": "Subsystem Identifier for QM Subsystem Interface"
+    },
+    "OperationText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Operation Short Text"
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspectionResult": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Summarized Inspection Results",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspPlanOperationInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Current Node No.",
+     "@sap.quickinfo": "Current Node Number from Order Counter",
+     "notNull": true
+    },
+    "InspectionCharacteristic": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Insp. Characteristic",
+     "@sap.quickinfo": "Inspection Characteristic Number",
+     "notNull": true
+    },
+    "InspectionResultStatus": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Status",
+     "@sap.quickinfo": "Results Record Status"
+    },
+    "InspectionResultAttribute": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Attribute",
+     "@sap.quickinfo": "Attribute of Results Record (Valid, Invalid,...)"
+    },
+    "InspectionResultOrigin": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Data Origin",
+     "@sap.quickinfo": "Origin of Results Data"
+    },
+    "Inspector": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspector",
+     "@sap.quickinfo": "Name of Inspector"
+    },
+    "InspectionValuationResult": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Valuation",
+     "@sap.quickinfo": "Inspection Result Valuation"
+    },
+    "InspectionResultMeanValue": {
+     "type": "cds.Double",
+     "@sap.label": "Mean Value",
+     "@sap.quickinfo": "Arithmetic Mean of Valid Measured Values",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdMeanValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Mean Value",
+     "@sap.quickinfo": "Arithmetic Mean of Valid Measured Values (Formatted)"
+    },
+    "InspectionResultHasMeanValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultMaximumValue": {
+     "type": "cds.Double",
+     "@sap.label": "Maximum Valid Value",
+     "@sap.quickinfo": "Maximum Value of Valid Measured Values",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdMaximumValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maximum Valid Value",
+     "@sap.quickinfo": "Maximum Value of Valid Measured Values - formatted"
+    },
+    "InspResultHasMaximumValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultMinimumValue": {
+     "type": "cds.Double",
+     "@sap.label": "Minimum Valid Value",
+     "@sap.quickinfo": "Minimum Value of Valid Measured Values",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdMinimumValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Minimum Valid Value",
+     "@sap.quickinfo": "Minimum Value of Valid Measured Values (Formatted)"
+    },
+    "InspResultHasMinimumValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultOriginalValue": {
+     "type": "cds.String",
+     "length": 25,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Original Value",
+     "@sap.quickinfo": "Original Value Before Input Processing"
+    },
+    "InspResultValidValuesNumber": {
+     "type": "cds.Integer",
+     "@sap.label": "Inspected",
+     "@sap.quickinfo": "Number of Inspected Sample Units"
+    },
+    "InspectionResultText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Inspection Desc. for Summarized Result",
+     "@sap.quickinfo": "Inspection Description for Summarized Result"
+    },
+    "InspectionResultHasLongText": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Long text",
+     "@sap.quickinfo": "Inspection Characteristic Long Text Exists"
+    },
+    "CharacteristicAttributeCatalog": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "CharacteristicAttributeCodeGrp": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "CharacteristicAttributeCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspRsltFreeDefinedTestEquip": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.label": "Additional Info.",
+     "@sap.quickinfo": "General Information"
+    },
+    "InspRsltBelowToleranceValsNmbr": {
+     "type": "cds.Integer",
+     "@sap.label": "Number Below",
+     "@sap.quickinfo": "Number of Measured Values Below Tolerance Range"
+    },
+    "InspRsltAboveToleranceValsNmbr": {
+     "type": "cds.Integer",
+     "@sap.label": "Number Above",
+     "@sap.quickinfo": "Number of Measured Values Above Tolerance Range"
+    },
+    "InspRsltNonconformingValsNmbr": {
+     "type": "cds.Integer",
+     "@sap.label": "Nonconforming",
+     "@sap.quickinfo": "Number of Nonconforming Sample Units"
+    },
+    "InspectionNumberOfDefects": {
+     "type": "cds.Integer",
+     "@sap.label": "Number of Defects",
+     "@sap.quickinfo": "Number of Defects Found"
+    },
+    "DefectClass": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Defect Class",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspRsltAboveToleranceFraction": {
+     "type": "cds.Double",
+     "@sap.label": "Fraction Above",
+     "@sap.quickinfo": "Estimated Fraction Above Tolerance Range",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspRsltFrmtdAbvTolFraction": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Fraction Above",
+     "@sap.quickinfo": "Estimated Fraction Above Tolerance Range (Formatted)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspRsltBelowToleranceFraction": {
+     "type": "cds.Double",
+     "@sap.label": "Fraction Below",
+     "@sap.quickinfo": "Estimated Fraction Below Tolerance Range",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspRsltFrmtdBelowTolFraction": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Fraction Below",
+     "@sap.quickinfo": "Estimated Fraction Below Tolerance Range (Formatted)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultVariance": {
+     "type": "cds.Double",
+     "@sap.label": "Variance",
+     "@sap.quickinfo": "Dispersion (Variance) of Valid Measured Values",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdVariance": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Variance",
+     "@sap.quickinfo": "Dispersion (Variance) of Valid Measured Values (Formatted)"
+    },
+    "InspectionResultCatalog2": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCatalog3": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCatalog4": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCatalog5": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCode2": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode3": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode4": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode5": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCodeGroup2": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup3": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup4": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup5": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionPartialSampleSize": {
+     "type": "cds.Integer",
+     "@sap.label": "Partial Samples",
+     "@sap.quickinfo": "Number of Partial Samples for Characteristic"
+    },
+    "InspectionStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Insp. Start Date",
+     "@sap.quickinfo": "Start Date in Local Time Zone of Inspection"
+    },
+    "InspectionStartTime": {
+     "type": "cds.Time",
+     "@sap.label": "Insp. Start Time",
+     "@sap.quickinfo": "Start Time in Local Time Zone of Inspection"
+    },
+    "InspectionEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Inspection End Date"
+    },
+    "InspectionEndTime": {
+     "type": "cds.Time",
+     "@sap.label": "Inspection End Time",
+     "@sap.quickinfo": "End Time in Local Time Zone of Inspection"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Name of User Who Created the Data Record",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Created",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Name of User Who Last Changed Data Record",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangeDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Changed",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspectionResultValue": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Single Inspection Results",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspPlanOperationInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Current Node No.",
+     "@sap.quickinfo": "Current Node Number from Order Counter",
+     "notNull": true
+    },
+    "InspectionCharacteristic": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Insp. Characteristic",
+     "@sap.quickinfo": "Inspection Characteristic Number",
+     "notNull": true
+    },
+    "InspResultValueInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Individual Result",
+     "@sap.quickinfo": "Number of Individual Result",
+     "notNull": true
+    },
+    "InspectionResultAttribute": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Attribute",
+     "@sap.quickinfo": "Attribute of Results Record (Valid, Invalid,...)"
+    },
+    "InspResultItemInternalID": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Unit No.",
+     "@sap.quickinfo": "Counter for Inspection Unit Number"
+    },
+    "InspectionSubsetInternalID": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sample Number",
+     "@sap.quickinfo": "Inspection Sample Number"
+    },
+    "InspectionResultMeasuredValue": {
+     "type": "cds.Double",
+     "@sap.label": "Measured Value",
+     "@sap.quickinfo": "Measured Value for a Sample Unit",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdMeasuredValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Measured Value",
+     "@sap.quickinfo": "Measured Value for a Sample Unit - formatted"
+    },
+    "InspResultHasMeasuredValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "MeasVal. Not Initial",
+     "@sap.quickinfo": "Measured Value Is Not Initial",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultOriginalValue": {
+     "type": "cds.String",
+     "length": 25,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Original Value",
+     "@sap.quickinfo": "Original Value Before Input Processing"
+    },
+    "InspectionNumberOfDefects": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "@sap.label": "Number of defects",
+     "@sap.quickinfo": "Number of Defects Found"
+    },
+    "DefectClass": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Defect Class",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Inspection Description for Single Value"
+    },
+    "InspLotSingleUnitNumber": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Single Unit Number",
+     "@sap.quickinfo": "Number of Single Unit in Inspection Lot"
+    },
+    "InspectionResultItem": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Serial Number",
+     "@sap.quickinfo": "Single-Unit Number for the Unit to Be Inspected"
+    },
+    "InspRsltFreeDefinedTestEquip": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.label": "Additional Info.",
+     "@sap.quickinfo": "General Information"
+    },
+    "InspectionValuationResult": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Valuation",
+     "@sap.quickinfo": "Inspection Result Valuation"
+    },
+    "CharacteristicAttributeCodeGrp": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup2": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup3": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup4": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup5": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "CharacteristicAttributeCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode2": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode3": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode4": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode5": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "CharacteristicAttributeCatalog": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultCatalog2": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultCatalog3": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultCatalog4": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultCatalog5": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "Inspector": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspector",
+     "@sap.quickinfo": "Name of Inspector"
+    },
+    "InspectionStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Insp. Start Date",
+     "@sap.quickinfo": "Start Date in Local Time Zone of Inspection"
+    },
+    "InspectionStartTime": {
+     "type": "cds.Time",
+     "@sap.label": "Insp. Start Time",
+     "@sap.quickinfo": "Start Time in Local Time Zone of Inspection"
+    },
+    "InspectionEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Inspection End Date",
+     "@sap.quickinfo": "End Date in Local Time Zone of Inspection"
+    },
+    "InspectionEndTime": {
+     "type": "cds.Time",
+     "@sap.label": "Inspection End Time",
+     "@sap.quickinfo": "End Time in Local Time Zone of Inspection"
+    },
+    "CreationDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Created",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationTime": {
+     "type": "cds.Time",
+     "@sap.label": "Time",
+     "@sap.quickinfo": "System Time at Which Data Record Was Created",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Name of User Who Created the Data Record",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangeDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Changed",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedTime": {
+     "type": "cds.Time",
+     "@sap.label": "Time",
+     "@sap.quickinfo": "System Time at Which Data Record Was Changed",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Name of User Who Last Changed Data Record",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspectionSubset": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Inspection Points",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspPlanOperationInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Current Node No.",
+     "@sap.quickinfo": "Current Node Number from Order Counter",
+     "notNull": true
+    },
+    "InspectionSubsetInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sample",
+     "@sap.quickinfo": "Sample Number (Based on an Inspection Point)",
+     "notNull": true
+    },
+    "Trigger_valuation_ac": {
+     "type": "cds.Boolean",
+     "@sap.label": "Dyn. Action Control",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false"
+    },
+    "MaterialSample": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Sample",
+     "@sap.quickinfo": "Material Sample Number"
+    },
+    "Equipment": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Equipment",
+     "@sap.quickinfo": "Equipment Number"
+    },
+    "FunctionalLocation": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Functional Location"
+    },
+    "ShopFloorItem": {
+     "type": "cds.Integer64",
+     "@sap.label": "Serial.Mat. ID",
+     "@sap.quickinfo": "ID of Serialized Material"
+    },
+    "SelectedCodeSetPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "SelectedCodeSet": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "UD Selected Set",
+     "@sap.quickinfo": "Selected Set of the Usage Decision"
+    },
+    "InspSubsetUsageDcsnCodeGroup": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "UD Code Group",
+     "@sap.quickinfo": "Code Group of the Usage Decision"
+    },
+    "InspSubsetUsageDcsnCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Usage Decision Code"
+    },
+    "InspSubsetUsageDcsnValuation": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Valuation"
+    },
+    "InspectionSubsetTime": {
+     "type": "cds.Time",
+     "@sap.label": "User Field for Time"
+    },
+    "InspectionSubsetDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "User Field for Date"
+    },
+    "InspSubsetLongNumericKey": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "User Field for 10 Digits"
+    },
+    "InspSubsetShortNumericKey": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "User Field for 3 Digits"
+    },
+    "InspectionSubsetLongCharKey": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field for 18 Characters"
+    },
+    "InspectionSubsetShortCharKey": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field for 10 Characters"
+    },
+    "InspectionPartialLot": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Partial Lot",
+     "@sap.quickinfo": "Partial Lot Number"
+    },
+    "Inspector": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspector",
+     "@sap.quickinfo": "Name of Inspector"
+    },
+    "InspectionSubsetYieldQty": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionSubsetQtyUnit",
+     "@sap.label": "Insp. Point Yield",
+     "@sap.quickinfo": "Inspection Point Yield"
+    },
+    "InspectionSubsetScrapQty": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionSubsetQtyUnit",
+     "@sap.label": "Insp. Point Scrap",
+     "@sap.quickinfo": "Scrap for Inspection Point"
+    },
+    "InspectionSubsetReworkQty": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspectionSubsetQtyUnit",
+     "@sap.label": "Rework Quantity",
+     "@sap.quickinfo": "Rework Quantity for Inspection Point"
+    },
+    "InspectionSubsetQtyUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Insp.Pt UoM",
+     "@sap.quickinfo": "Unit of Measure for Inspection Point",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "InspSbstFuncnlLocProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstEquipProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstMatlSmplProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionSubsetSortKey": {
+     "type": "cds.String",
+     "length": 70,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspection Point",
+     "@sap.quickinfo": "Key Field (Sort Field) for Inspection Point",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstDateFldProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstLongNmbrFldProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstShrtNmbrFldProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstLongTxtFldProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstTimeFldProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspSbstShrtTxtFldProperty": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "User Field Active",
+     "@sap.quickinfo": "Field Active",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Name of Person Responsible for Creating the Object",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Created",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationTime": {
+     "type": "cds.Time",
+     "@sap.label": "Created At",
+     "@sap.quickinfo": "System Time at Which Data Record Was Created",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Name of Person Who Changed Object",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangeDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Changed",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangeTime": {
+     "type": "cds.Time",
+     "@sap.label": "Changed At",
+     "@sap.quickinfo": "System Time at Which Data Record Was Changed",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    }
+   },
+   "actions": {
+    "A_InspectionSubsetTrigger_valuation": {
+     "kind": "action",
+     "returns": {
+      "type": "API_INSPECTIONLOT_SRV.A_InspectionSubset"
+     }
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspLotMatlDocItem": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Stock Postings",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspLotMatlDocItem": {
+     "key": true,
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal Counter for DB Objects",
+     "notNull": true
+    },
+    "InspLotQtyPosted": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "InspLotMatlDocItmQtyUnit",
+     "@sap.label": "Quantity in Entry Unit",
+     "@sap.quickinfo": "Quantity in Unit of Entry"
+    },
+    "InspLotMatlDocItmQtyUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Unit of Entry",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "UsageDecisionStockType": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Posting proposal UD",
+     "@sap.quickinfo": "Posting Proposal in Usage Decision"
+    },
+    "StorageLocation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage Location"
+    },
+    "InspLotMaterialPostedTo": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Transfer Material"
+    },
+    "InspLotBatchTransferredTo": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Transfer Batch"
+    },
+    "MaterialDocumentItemText": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.label": "Text",
+     "@sap.quickinfo": "Item Text"
+    },
+    "InspLotMatlDocItemType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reference Type",
+     "@sap.quickinfo": "Type of Reference Between Inspection Lot and Material Doc.",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaterialDocument": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Document",
+     "@sap.quickinfo": "Number of Material Document",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaterialDocumentYear": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Material Doc. Year",
+     "@sap.quickinfo": "Material Document Year",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "MaterialDocumentItem": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Material Doc.Item",
+     "@sap.quickinfo": "Item in Material Document",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Entry Date",
+     "@sap.quickinfo": "Day On Which Accounting Document Was Entered",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    },
+    "to_InspLotMatlDocItmSrlNmbr": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "API_INSPECTIONLOT_SRV.A_InspLotMatlDocItmSrlNmbr",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspLotMatlDocItmSrlNmbr": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Serial Numbers for Stock Posting",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspLotMatlDocItem": {
+     "key": true,
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Counter",
+     "@sap.quickinfo": "Internal Counter for DB Objects",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "Equipment": {
+     "key": true,
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Equipment",
+     "@sap.quickinfo": "Equipment Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "SerialNumber": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Serial Number"
+    },
+    "InspLotMatlDocItemType": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Reference Type",
+     "@sap.quickinfo": "Type of Reference Between Inspection Lot and Material Doc.",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspLotSerialNumber": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Serial Numbers of Inspection Lot",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "SerialNumber": {
+     "key": true,
+     "type": "cds.String",
+     "length": 18,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Serial Number",
+     "notNull": true
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspLotUsageDecision": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Usage Decisions",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspLotUsageDecisionLevel": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Usage Decision Type",
+     "@sap.quickinfo": "Inspection Lot, Partial Lot, Single Unit, Interval"
+    },
+    "InspectionLotQualityScore": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Quality Score"
+    },
+    "InspLotUsageDecisionCatalog": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog"
+    },
+    "SelectedCodeSetPlant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "InspLotUsgeDcsnSelectedSet": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "UD Selected Set",
+     "@sap.quickinfo": "Selected Set of the Usage Decision"
+    },
+    "InspLotUsageDecisionCodeGroup": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Usage Decision Code Group"
+    },
+    "InspectionLotUsageDecisionCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Usage Decision Code"
+    },
+    "InspLotUsgeDcsnDynValuation": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "DynMod. valuation",
+     "@sap.quickinfo": "Dynamic Modif. Valuation According to Worst Case Principle"
+    },
+    "InspLotUsageDecisionValuation": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Valuation"
+    },
+    "InspLotUsgeDcsnFollowUpAction": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Follow-Up Action"
+    },
+    "InspectionLotUsageDecidedBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Usage Decision Made By"
+    },
+    "InspectionLotUsageDecidedOn": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Usage Decision Made On",
+     "@sap.quickinfo": "Date When Usage Decision Was Made"
+    },
+    "InspLotUsageDecisionTime": {
+     "type": "cds.Time",
+     "@sap.label": "Usage Decision Made At",
+     "@sap.quickinfo": "Time When Usage Decision Was Made"
+    },
+    "InspLotUsageDecisionChangedBy": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Usage Decision Changed By"
+    },
+    "InspLotUsageDecisionChangedOn": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Usage Decision Changed On",
+     "@sap.quickinfo": "Date When Usage Decision Was Changed"
+    },
+    "InspLotUsgeDcsnChangedTime": {
+     "type": "cds.Time",
+     "@sap.label": "Usage Decision Changed At",
+     "@sap.quickinfo": "Time When Usage Decision Was Changed"
+    },
+    "InspLotUsgeDcsnHasLongText": {
+     "type": "cds.Boolean",
+     "@sap.label": "Usage Decision Has Long Text"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspSampleCharacteristic": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Inspection Characteristics of Inspection Points",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspPlanOperationInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Current Node No.",
+     "@sap.quickinfo": "Current Node Number from Order Counter",
+     "notNull": true
+    },
+    "InspectionCharacteristic": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Insp. Characteristic",
+     "@sap.quickinfo": "Inspection Characteristic Number",
+     "notNull": true
+    },
+    "InspectionSubsetInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Sample Number",
+     "@sap.quickinfo": "Inspection Sample Number",
+     "notNull": true
+    },
+    "InspectionCharacteristicStatus": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Specification status",
+     "@sap.quickinfo": "Specification Record Status"
+    },
+    "QualityControlChart": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Control Chart",
+     "@sap.quickinfo": "Control Chart Number"
+    },
+    "InspSampleAcceptanceNumber": {
+     "type": "cds.Integer",
+     "@sap.label": "Acceptance Number"
+    },
+    "InspSampleRejectionNumber": {
+     "type": "cds.Integer",
+     "@sap.label": "Rejection no.",
+     "@sap.quickinfo": "Rejection Number"
+    },
+    "InspSampleValuationRule": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Valuation rule",
+     "@sap.quickinfo": "Valuation Rule"
+    },
+    "InspectionSampleSize": {
+     "type": "cds.Integer",
+     "@sap.label": "Inspect",
+     "@sap.quickinfo": "Sample Size that Must Be Inspected"
+    },
+    "InspLotDynRuleStage": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Stage"
+    },
+    "InspectionSeverity": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Severity"
+    },
+    "InspSubsetCharcCreationDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Created"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    }
+   }
+  },
+  "API_INSPECTIONLOT_SRV.A_InspSampleResult": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Summarized Inspection Results for Inspection Point",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspPlanOperationInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Current Node No.",
+     "@sap.quickinfo": "Current Node Number from Order Counter",
+     "notNull": true
+    },
+    "InspectionCharacteristic": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Insp. Characteristic",
+     "@sap.quickinfo": "Inspection Characteristic Number",
+     "notNull": true
+    },
+    "InspectionSubsetInternalID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Partial Sample",
+     "@sap.quickinfo": "Number of Partial Sample",
+     "notNull": true
+    },
+    "Inspector": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Inspector",
+     "@sap.quickinfo": "Name of Inspector"
+    },
+    "InspectionResultStatus": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Status",
+     "@sap.quickinfo": "Results Record Status"
+    },
+    "InspectionResultOrigin": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Data Origin",
+     "@sap.quickinfo": "Origin of Results Data"
+    },
+    "InspectionStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Insp. Start Date",
+     "@sap.quickinfo": "Start Date in Local Time Zone of Inspection"
+    },
+    "InspectionStartTime": {
+     "type": "cds.Time",
+     "@sap.label": "Insp. Start Time",
+     "@sap.quickinfo": "Start Time in Local Time Zone of Inspection"
+    },
+    "InspectionEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Inspection End Date",
+     "@sap.quickinfo": "End Date in Local Time Zone of Inspection"
+    },
+    "InspectionEndTime": {
+     "type": "cds.Time",
+     "@sap.label": "Inspection End Time",
+     "@sap.quickinfo": "End Time in Local Time Zone of Inspection"
+    },
+    "InspectionResultAttribute": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Attribute",
+     "@sap.quickinfo": "Attribute of Results Record (Valid, Invalid,...)"
+    },
+    "InspectionValuationResult": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Valuation",
+     "@sap.quickinfo": "Inspection Result Valuation"
+    },
+    "InspResultFrmtdMeanValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Mean Value",
+     "@sap.quickinfo": "Arithmetic Mean of Valid Measured Values (Formatted)"
+    },
+    "InspectionResultHasMeanValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdMaximumValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Maximum Valid Value",
+     "@sap.quickinfo": "Maximum Value of Valid Measured Values - formatted"
+    },
+    "InspResultHasMaximumValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdMinimumValue": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Minimum Valid Value",
+     "@sap.quickinfo": "Minimum Value of Valid Measured Values (Formatted)"
+    },
+    "InspResultHasMinimumValue": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Not Initial",
+     "@sap.quickinfo": "Value Not Initial If Set",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspectionResultOriginalValue": {
+     "type": "cds.String",
+     "length": 25,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Original Value",
+     "@sap.quickinfo": "Original Value Before Input Processing"
+    },
+    "InspResultValidValuesNumber": {
+     "type": "cds.Integer",
+     "@sap.label": "Inspected",
+     "@sap.quickinfo": "Number of Inspected Sample Units"
+    },
+    "InspResultNmbrOfRecordedRslts": {
+     "type": "cds.Integer",
+     "@sap.label": "Recorded",
+     "@sap.quickinfo": "Number of Recorded Sample Units"
+    },
+    "InspectionResultText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Inspection Description for Sample Result"
+    },
+    "InspectionResultHasLongText": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Long text",
+     "@sap.quickinfo": "Inspection Characteristic Long Text Exists",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "Language": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Language Key",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspRsltFreeDefinedTestEquip": {
+     "type": "cds.String",
+     "length": 18,
+     "@sap.label": "Additional Info.",
+     "@sap.quickinfo": "General Information"
+    },
+    "InspRsltBelowToleranceValsNmbr": {
+     "type": "cds.Integer",
+     "@sap.label": "Number Below",
+     "@sap.quickinfo": "Number of Measured Values Below Tolerance Range"
+    },
+    "InspRsltAboveToleranceValsNmbr": {
+     "type": "cds.Integer",
+     "@sap.label": "Number Above",
+     "@sap.quickinfo": "Number of Measured Values Above Tolerance Range"
+    },
+    "InspRsltFrmtdAbvTolFraction": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Fraction Above",
+     "@sap.quickinfo": "Estimated Fraction Above Tolerance Range (Formatted)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspRsltFrmtdBelowTolFraction": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Fraction Below",
+     "@sap.quickinfo": "Estimated Fraction Below Tolerance Range (Formatted)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InspResultFrmtdVariance": {
+     "type": "cds.String",
+     "length": 22,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Variance",
+     "@sap.quickinfo": "Dispersion (Variance) of Valid Measured Values (Formatted)"
+    },
+    "InspRsltNonconformingValsNmbr": {
+     "type": "cds.Integer",
+     "@sap.label": "Nonconforming",
+     "@sap.quickinfo": "Number of Nonconforming Sample Units"
+    },
+    "InspectionNumberOfDefects": {
+     "type": "cds.Integer",
+     "@sap.label": "Number of defects",
+     "@sap.quickinfo": "Number of Defects Found",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CharacteristicAttributeCodeGrp": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup2": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup3": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup4": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "InspectionResultCodeGroup5": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code Group"
+    },
+    "CharacteristicAttributeCode": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode2": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode3": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode4": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "InspectionResultCode5": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Code"
+    },
+    "CharacteristicAttributeCatalog": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCatalog2": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCatalog3": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCatalog4": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "InspectionResultCatalog5": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Catalog Type",
+     "@sap.quickinfo": "Catalog Type of Assigned Code Group or Selected Set"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Name of User Who Created the Data Record",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Created",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationTime": {
+     "type": "cds.Time",
+     "@sap.label": "Time",
+     "@sap.quickinfo": "System Time at Which Data Record Was Created",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Name of User Who Last Changed Data Record",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangeDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "System Date on Which Data Record Was Changed",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Short Time Stamp",
+     "@sap.quickinfo": "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ChangedTime": {
+     "type": "cds.Time",
+     "@sap.label": "Time",
+     "@sap.quickinfo": "System Time at Which Data Record Was Changed",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    }
+   }
+  }
+ }
+}
