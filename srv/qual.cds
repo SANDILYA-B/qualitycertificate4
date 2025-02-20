@@ -63,6 +63,7 @@ service qualitycertificate {
      } 
 
 
+
     entity quality1 as projection on quality.quality1{
         *
     }actions{
@@ -71,6 +72,7 @@ service qualitycertificate {
 
     entity NumberRange as projection on quality.numberrange;
 };
+
 
 annotate qualitycertificate.quality1 with @odata.draft.enabled;
 annotate qualitycertificate.NumberRange with @odata.draft.enabled;

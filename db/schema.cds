@@ -22,3 +22,4 @@ entity numberrange: managed, cuid {
     @title: 'Current Number'
     current_num: Integer64 @readonly;
 }
+
